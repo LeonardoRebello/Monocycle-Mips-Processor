@@ -1,0 +1,33 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity INSTRUCTION_MEMORY is
+	port(i_READADDRESS : in  std_logic_vector(31 downto 0);
+		  o_INSTRUCTION : out std_logic_vector(31 downto 0));
+end entity INSTRUCTION_MEMORY;
+
+architecture arch0 of INSTRUCTION_MEMORY is
+TYPE t_ROMMEMORY is array(0 to 15) of std_logic_vector(31 downto 0);
+signal s_ROM : t_ROMMEMORY := ("0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000",
+										 "0000000000000000");
+begin
+	o_INSTRUCTION <= x"00000000" when i_READADDRESS = x"003FFFFC" else
+		S_ROM(to_integer(unsigned(i_READADDRESS)) - 4194304 / 4); 
+		-- 4194304 representa o decimal do valor x"00400000"
+end arch0;
+		

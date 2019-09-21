@@ -1,0 +1,19 @@
+library iee;
+use ieee.std_logic_1164.all;
+
+entity FOLDER_FREQUENCY is
+	port(i_CLOCK : in  std_logic;
+		  o_CLOCK : out std_logic);
+end entity FOLDER_FREQUENCY;
+
+architecture arch0 of FOLDER_FREQUENCY is
+begin
+	process(i_CLOCK)
+	begin
+		if(rising_edge(i_CLOCK)) then
+			o_CLOCK <= not i_CLOCK;
+		elsif(falling_edge(i_CLOCK)) then
+			o_CLOCK <= not i_CLOCK;
+		end if;
+	end process;
+end arch0;

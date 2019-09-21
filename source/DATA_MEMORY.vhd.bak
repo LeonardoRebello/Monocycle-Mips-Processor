@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity DATA_MEMORY is
+	port(i_CLOCK        : in  std_logic;
+		  i_RESET        : in  std_logic;
+		  i_MEMWRITE     : in  std_logic;
+		  i_MEMREAD      : in  std_logic;
+		  i_ADDRESS      : in  std_logic_vector(31 downto 0);
+		  i_WRITEADDRESS : in  std_logic_vector(31 downto 0);
+		  o_READDATA     : out std_logic_vector(31 downto 0));
+end entity DATA_MEMORY;
+
+architecture arch0 of DATA_MEMORY is
+begin
+	process(i_CLOCK, i_RESET, i_MEMREAD, i_MEMWRITE)
+	begin
+	end process;
+end arch0;

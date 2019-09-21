@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ALU is 
+	port(i_DATA1     : in  std_logic_vector(31 downto 0);
+		  i_DATA2     : in  std_logic_vector(31 downto 0);
+		  i_ALUINPUT  : in  std_logic_vector(3 downto 0);
+		  o_ALURESULT : out std_logic_vector(31 downto 0);
+		  o_ALUZERO   : out std_logic);
+end entity ALU;
+
+architecture arch0 of ALU is
+begin
+	process(i_DATA1, i_DATA2, i_ALUINPUT)
+	begin
+		case i_ALUINPUT is 
+			when "0010" =>
+				o_ALURESULT <= i_DATA1 + i_DATA2;
+			when others =>
+				o_ALURESULT <= i_DATA1 - i_DATA2;
+		end case;
+	end process;
+end arch0;

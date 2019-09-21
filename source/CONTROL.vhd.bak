@@ -1,0 +1,17 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity CONTROL is
+	port(i_CLOCK : in std_logic;
+		  i_RESET : in std_logic;
+		  i_INSTRUCTION : in std_logic_vector(5 downto 0);
+		  o_REGDST : out std_logic;
+		  o_JUMP : out std_logic;
+		  o_BRANCH : out std_logic;
+		  o_MEMREAD : out std_logic;
+		  o_MEMTOREG : out std_logic;  
+		  o_MEMWRITE : out std_logic;
+		  o_ALUSRC : out std_logic;
+		  o_REGWRITE : out std_logic;);
+		  o_ALUOP : out std_logic_vector(1 downto 0));
+end entity CONTROL;

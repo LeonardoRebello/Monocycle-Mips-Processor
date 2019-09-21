@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity JUMPADDRESS is
+	port(i_VECTORINSTRUCTION : in  std_logic_vector(25 downto 0); --IN
+		  i_PC4               : in  std_logic_vector(3 downto 0);
+		  o_JUMPADDRESS       : out std_logic_vector(31 downto 0)  --OUT
+			);
+end entity JUMPADDRESS;
+
+architecture arch0 of JUMPADDRESS is
+begin
+	process(i_VECTORINSTRUCTION, i_PC4)
+	begin
+		o_JUMPADDRESS(1 downto 0) <= B"00";
+		o_JUMPADDRESS(27 downto 2) <= i_VECTORINSTRUCTION;
+		o_JUMPADDRESS(31 downto 28) <= i_PC4;
+	end process;
+end arch0;
